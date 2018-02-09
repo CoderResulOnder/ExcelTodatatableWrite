@@ -1,0 +1,12 @@
+           SaveFileDialog save = new SaveFileDialog();
+
+            save.Filter = "Excel Files|*.xlsx;*.xls;*.xlsm";
+
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                var wb = new XLWorkbook();
+                
+                wb.Worksheets.Add((DataTable)NormalSonucKaydi, iniDataGetValue("NormalOlcumSonuclari", iniBuyukKucukKontrol.IlkHarflerBuyukDigerleriKucuk));
+               
+                wb.SaveAs(save.FileName);
+            }
